@@ -230,7 +230,10 @@ export class Outputter extends EventEmitter {
 		this.clearButton = document.createElement("button");
 		this.clearButton.className = "clear-button";
 		this.clearButton.setText("Clear");
-		this.clearButton.addEventListener("click", () => this.delete());
+		this.clearButton.addEventListener("click", (event) => {
+			event.stopPropagation();
+			this.delete()
+		});
 
 		parentEl.appendChild(this.clearButton);
 	}

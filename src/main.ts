@@ -460,6 +460,9 @@ export default class ExecuteCodePlugin extends Plugin {
 		const button = document.createElement("button");
 		button.classList.add(runButtonClass);
 		button.setText(buttonText);
+		button.addEventListener("click", (event) => {
+			event.stopPropagation();
+		});
 		return button;
 	}
 
